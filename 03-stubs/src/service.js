@@ -22,5 +22,15 @@ export default class Service{
 
         return fs.appendFile(this.#filename, data)
     }
-    read() {}
+    async read() {
+        const lines = (await fs.readFile(this.#filename, 'utf-8'))
+        .split('\n')
+        .filter(line => !!line)
+
+        if(!lines.length) return []
+
+        return lines
+            .map(line => JSON.parse(line))
+            .map(({password, ...rest}) => ({...rest}))
+    }
 }
