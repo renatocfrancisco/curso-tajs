@@ -27,8 +27,7 @@ describe('Service Test Suite', () => {
         it('should return an array if file contains user(s)', async () => {
             const dbData = [
                 {username: 'user1', password: 'pass1', createdAt: new Date().toISOString()},
-                {username: 'user2', password: 'pass2', createdAt: new Date().toISOString()},
-                {username: 'user3', password: 'pass3', createdAt: new Date().toISOString()}
+                {username: 'user2', password: 'pass2', createdAt: new Date().toISOString()}
             ]
 
             const fileContents = dbData.map(item => JSON.stringify(item).concat('\n')).join('')
